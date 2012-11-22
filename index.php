@@ -65,17 +65,17 @@ class CatSpawn{
 	}
 
 	private function saveImage($filename, $ext){
-	    switch($ext){
-        	case 'jpeg':
-	        case 'jpg':
-	            return imagecreatefromjpeg($filename);
-	        break;
+		switch($ext){
+			case 'jpeg':
+		    case 'jpg':
+		        return imagecreatefromjpeg($filename);
+		    break;
 
-	        case 'png':
-	            return imagecreatefrompng($filename);
-	        break;
+		    case 'png':
+		        return imagecreatefrompng($filename);
+		    break;
 
-	    }
+		}
     }
 
     private function watermarkImage($filename, $words){
