@@ -79,9 +79,9 @@ class CatSpawn{
     }
 
     private function watermarkImage($filename, $words){
-    	putenv('GDFONTPATH=' . realpath('.'));
-    	$black = imagecolorallocate($filename, 255, 255, 255);
-		$font = 'Arial Black';
+		putenv('GDFONTPATH=' . realpath('.'));
+		$black = imagecolorallocate($filename, 255, 255, 255);
+    	$font = 'Arial Black';
 		$font_size = 10;
 
 		imagettftext($filename, $font_size, 0, 20, imagesy($filename) - 20, $black, $font, $words);
