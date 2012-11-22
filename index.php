@@ -67,25 +67,24 @@ class CatSpawn{
 	private function saveImage($filename, $ext){
 		switch($ext){
 			case 'jpeg':
-		    case 'jpg':
-		        return imagecreatefromjpeg($filename);
-		    break;
+			case 'jpg':
+				return imagecreatefromjpeg($filename);
+			break;
 
-		    case 'png':
-		        return imagecreatefrompng($filename);
-		    break;
-
+			case 'png':
+				return imagecreatefrompng($filename);
+			break;
 		}
-    }
+	}
 
-    private function watermarkImage($filename, $words){
+	private function watermarkImage($filename, $words){
 		putenv('GDFONTPATH=' . realpath('.'));
 		$black = imagecolorallocate($filename, 255, 255, 255);
-    	$font = 'Arial Black';
+		$font = 'Arial Black';
 		$font_size = 10;
 
 		imagettftext($filename, $font_size, 0, 20, imagesy($filename) - 20, $black, $font, $words);
-    }
+	}
 }
 
 
