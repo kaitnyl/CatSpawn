@@ -32,7 +32,7 @@ class CatSpawn{
 				$catAPI = 'http://thecatapi.com/api/images/get?api_key=NjkwNg&' . 
 					'format=xml&results_per_page=1&size=' . $catSize . '&category=space';
 
-				if($type == 'jpg' || $type == 'jpeg' || $type == 'png')
+				if($type == 'jpg' || $type == 'png')
 					$catAPI .= '&type=' . $type;
 				else
 					$catAPI .= '&type=png';
@@ -56,7 +56,12 @@ class CatSpawn{
 					
 					$this->watermarkImage($img, $kitty['source_url']);
 					header('Content-Type: image/' . $ext);
-					imagejpeg($img);
+					
+					if($type == 'jpg')
+						imagejpeg($img);
+					else
+						imagepng($img);
+
 					imagedestroy($img);
 				}
 
@@ -86,6 +91,5 @@ class CatSpawn{
 		imagettftext($filename, $font_size, 0, 20, imagesy($filename) - 20, $black, $font, $words);
 	}
 }
-
 
 ?>
