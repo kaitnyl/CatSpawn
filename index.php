@@ -35,7 +35,7 @@ class CatSpawn{
 				if($type == 'jpg' || $type == 'png')
 					$catAPI .= '&type=' . $type;
 				else
-					$catAPI .= '&type=png';
+					$catAPI .= '&type=jpg';
 
 				$context  = stream_context_create(array('http' => array('header' => 'Accept: application/xml')));
 				$xml = file_get_contents($catAPI, false, $context);
